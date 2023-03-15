@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+ 
+ 	<bean id="address1" class="IoCLearning.address">
+ 		<constructor-arg value="izmir"></constructor-arg>
+ 		<constructor-arg value="konak 2560 sokak no 47 kat 1 daire 2"></constructor-arg>
+ 		<constructor-arg value="35232"></constructor-arg>
+ 	</bean>
+ 	<bean id="address2" class="IoCLearning.address">
+ 		<constructor-arg value="İstanbul"></constructor-arg>
+ 		<constructor-arg value="beykoz 26250 sokak no 62 kat 4 daire 10"></constructor-arg>
+ 		<constructor-arg value="34123"></constructor-arg>
+ 	</bean>
+ 	<bean id="employee" class="IoCLearning.employee">
+ 		
+ 		<constructor-arg>
+ 			<list>
+ 				<ref bean= "address1"/>
+ 				<ref bean= "address2"/>
+ 			</list>
+ 		</constructor-arg>
+ 		<constructor-arg>
+ 			<list>
+ 				<value>mustafa</value>
+ 				<value>elif</value>
+ 				<value>polat</value>
+ 			</list>
+ 		</constructor-arg>
+ 		<property name = "name" value= "Cihangir Kılgı"></property>
+ 	</bean>
+
+
+<bean id="addressC" class="IoCLearning.address">
+	<constructor-arg name="city" value= "istanbul"></constructor-arg>
+	<constructor-arg name="hausaddress" value= "taksim 615321 sokak no 123 daire 5"></constructor-arg>
+
+</bean>
+<bean id="customer1" class="IoCLearning.customer">
+	<constructor-arg ref="addressC"></constructor-arg>
+	<constructor-arg name= "name" value= "ismet inönü"></constructor-arg>
+	<constructor-arg>
+		<map>
+			<entry key = "Ocak" value="ödendi"></entry>
+			<entry key = "Şubat" value="ödendi"></entry>
+			<entry key = "Mart" value="ödendi"></entry>
+			<entry key = "Nisan" value="ödendi"></entry>
+			<entry key = "Mayıs" value="ödenmedi"></entry>
+			<entry key = "Haziran" value="ödenmedi"></entry>
+			<entry key = "Temmuz" value="ödenmedi"></entry>
+			<entry key = "Ağustos" value="ödenmedi"></entry>
+			<entry key = "Eylül" value="ödenmedi"></entry>
+			<entry key = "Ekim" value="ödenmedi"></entry>
+			<entry key = "Kasım" value="ödenmedi"></entry>
+			<entry key = "Aralık" value="ödenmedi"></entry>
+		</map>
+	</constructor-arg>
+</bean>
+
+
+<bean id="addressC2" class="IoCLearning.address">
+	<constructor-arg name="city" value= "izmir"></constructor-arg>
+	<constructor-arg name="hausaddress" value= "eşrefpaşa 7521 sokak no 13 daire 7"></constructor-arg>
+
+</bean>
+<bean id="customer2" class="IoCLearning.customer">
+	<constructor-arg ref="addressC2"></constructor-arg>
+	<constructor-arg name= "name" value= "cihangir kılgı"></constructor-arg>
+	
+</bean>
+<bean id= "car1" class = "IoCLearning.cars">
+	<constructor-arg name = "mark" value="Honda"></constructor-arg>
+	<constructor-arg name = "model" value="Civc"></constructor-arg>
+	<constructor-arg name = "power" value="160hp"></constructor-arg>
+	<constructor-arg name = "year" value="2011"></constructor-arg>
+	<constructor-arg name = "plate" value="35 ck 123"></constructor-arg>
+	<constructor-arg type="float" name = "price" value="350"></constructor-arg>
+</bean>
+
+<bean id= "car2" class = "IoCLearning.cars">
+	<constructor-arg name = "mark" value="BMW"></constructor-arg>
+	<constructor-arg name = "model" value="F30"></constructor-arg>
+	<constructor-arg name = "power" value="200hp"></constructor-arg>
+	<constructor-arg name = "year" value="2013"></constructor-arg>
+	<constructor-arg name = "plate" value="34 ck 3213"></constructor-arg>
+	<constructor-arg type="float" name = "price" value="650"></constructor-arg>
+</bean>
+
+<bean id= "car3" class = "IoCLearning.cars">
+	<constructor-arg name = "mark" value="Range Rover"></constructor-arg>
+	<constructor-arg name = "model" value="Evoque"></constructor-arg>
+	<constructor-arg name = "power" value="150hp"></constructor-arg>
+	<constructor-arg name = "year" value="2015"></constructor-arg>
+	<constructor-arg name = "plate" value="35 ck 12354"></constructor-arg>
+	<constructor-arg type="float" name = "price" value="700"></constructor-arg>
+</bean>
+<bean id="rent1" class="IoCLearning.rent">
+	<constructor-arg>
+	<map>
+		<entry key-ref="car1" value-ref="customer1" ></entry>
+		<entry key-ref="car2" value-ref="customer2" ></entry>
+		<entry key-ref="car3" value-ref="customer1" ></entry>
+	</map>
+	</constructor-arg>
+</bean>
+</beans> 
