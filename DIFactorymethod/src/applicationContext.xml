@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+<bean id="driver1" class="DIFactorymethod.driver">
+	<constructor-arg name = "id" type="int" value="1"></constructor-arg>
+	<constructor-arg name = "name" value="Carlos"></constructor-arg>
+	<constructor-arg name = "surname" value="Sainz"></constructor-arg>
+	<constructor-arg name = "age" type="int" value="25"></constructor-arg>
+</bean>
+<bean id="driver2" class="DIFactorymethod.driver">
+	<constructor-arg name = "id" type="int" value="2"></constructor-arg>
+	<constructor-arg name = "name" value="Max"></constructor-arg>
+	<constructor-arg name = "surname" value="Verstappen"></constructor-arg>
+	<constructor-arg name = "age" type="int" value="23"></constructor-arg>
+</bean>
+
+
+
+<bean id="fr1" class="DIFactorymethod.ferrari" factory-method="getfr">
+	<property name="driver" ref="driver1"></property>
+	<property name ="power" value="750"></property>
+	<property name ="engineSize" value="2.4v"></property>
+	<property name ="engineName" value="fr"></property>
+</bean>
+
+
+<bean id="rb1" class="DIFactorymethod.redbull" factory-method="getrb">
+	<property name="driver" ref="driver2"></property>
+	<property name ="power" value="900"></property>
+	<property name ="engineSize" value="1.6v"></property>
+	<property name ="engineName" value="rb"></property>
+</bean>
+
+
+
+ 
+ </beans>
